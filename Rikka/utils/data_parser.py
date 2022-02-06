@@ -13,10 +13,10 @@ ANIME_TEMPLATE = """{name}
 
 **ID | MAL ID:** `{idm}` | `{idmal}`
 
-➤ **SOURCE :** `{source}`
-➤ **TYPE :** `{formats}`{dura}{gnrs_}
+**• SOURCE :** {source}
+**• TYPE :** {formats}{dura}{gnrs_}
 {status_air}{user_data}
-➤ **ADULT RATED :** `{adult}`
+**• ADULT RATED :** {adult}
 
 🎬 {trailer_link}
 📖 <a href="{surl}">Synopsis</a>
@@ -24,7 +24,7 @@ ANIME_TEMPLATE = """{name}
 
 {additional}
 
-**   [  IndiAnime  ](https://t.me/indianimei)"""
+**   [➥Anime Wrld](https://t.me/AnimeXWrld)"""
 
 # GraphQL Queries.
 ANIME_QUERY = """
