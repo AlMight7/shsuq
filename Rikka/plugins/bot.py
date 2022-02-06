@@ -15,17 +15,17 @@ GROUPS = get_collection("GROUPS")
 SFW_GROUPS = get_collection("SFW_GROUPS")
 
 
-@Client.on_message(filters.command(['start', f'start{BOT_NAME}'], prefixes=trg))
+@Client.on_message(filters.command(['aysheri', f'start{BOT_NAME}'], prefixes=trg))
 async def start_(client: Client, message: Message):
     bot = await client.get_me()
     if message.chat.id==message.from_user.id:
         user = message.from_user
         if not (user.id in OWNER) and not (await USERS.find_one({"id": user.id})):
             await asyncio.gather(USERS.insert_one({"id": user.id, "user": user.first_name}))
-            await clog("Rikka", f"New User started bot\n\n[{user.first_name}](tg://user?id={user.id})\nID: `{user.id}`", "NEW_USER")
+            await clog("Roxy", f"New User started bot\n\n[{user.first_name}](tg://user?id={user.id})\nID: `{user.id}`", "NEW_USER")
         if len(message.text.split(" "))!=1:
             deep_cmd = message.text.split(" ")[1]
-            if deep_cmd=="help":
+            if deep_cmd=="athusheri":
                 await help_(client, message)
                 return
             if deep_cmd=="auth":
@@ -38,15 +38,15 @@ async def start_(client: Client, message: Message):
                 return
         await client.send_photo(
             message.chat.id,
-            photo="https://telegra.ph/file/d5da24730bf5921fe488a.jpg",
-            caption=f"😄 __Hey!! I'm__ {bot.first_name}\n\n**💖 Hi i am Rikka Takanashi Made By Team [IndiAnime](https://t.me/indianimebase) !!**\n\n**😉 Join [Group](https://t.me/indianimein) too use me!!**\n\n\n**💌 Mantained By @Sohailkhan_Anime !**",
+            photo="https://telegra.ph/file/3972835a248a5d965bfde.jpg",
+            caption=f"**Hey there My name is {bot.first_name}**",
         )
     else:
         gid = message.chat
         if not await (GROUPS.find_one({"id": gid.id})):
             await asyncio.gather(GROUPS.insert_one({"id": gid.id, "grp": gid.title}))
-            await clog("Rikka", f"Bot added to a new group\n\n{gid.username or gid.title}\nID: `{gid.id}`", "NEW_GROUP")
-        await client.send_photo(message.chat.id, photo="https://telegra.ph/file/886dec1b68d8af27a728a.jpg", caption="**Hey Dear I Didn't Sleep Yet !!**\n\nLet's Discuss In Private Chat About Kids!!")
+            await clog("Roxy", f"Bot added to a new group\n\n{gid.username or gid.title}\nID: `{gid.id}`", "NEW_GROUP")
+        await client.send_photo(message.chat.id, photo="https://telegra.ph/file/80e96f89cd229dad278ca.jpg", caption="**Hey Dear I Didn't Sleep Yet !!**\n\nLet's Discuss In Private Chat About Kids!!")
 
 
 @Client.on_message(filters.command(['help', f'help{BOT_NAME}'], prefixes=trg))
@@ -65,7 +65,7 @@ async def help_(client: Client, message: Message):
         )
     else:
         if message.chat.id==message.from_user.id:
-            await client.send_photo(message.chat.id, photo="https://telegra.ph/file/be3daa3ccb0c03f51e9d9.jpg", caption="💖 **Hey!! This is my help menu.** \nAll Commands and it's Explanation Are here.\nGo through them 🤗", reply_markup=buttons)
+            await client.send_photo(message.chat.id, photo="https://telegra.ph/file/7e71502d8f0ff82571e73.jpg", caption="💖 **Hey!! This is my help menu.** \nAll Commands and it's Explanation Are here.\nGo through them 🤗", reply_markup=buttons)
         else:
             await client.send_message(
                 message.chat.id,
@@ -90,7 +90,7 @@ async def help_list_parser(client, cq: CallbackQuery):
     await cq.answer()
     user = cq.data.split("_")[1]
     buttons = help_btns(user)
-    await cq.edit_message_text(text="💖 **Hey!! This is my help menu.** \nAll Commands and it's Explanation Are here.\nGo through them 🤗", reply_markup=buttons)
+    await cq.edit_message_text(text="**Help Menu.** \nAll Commands and it's Explanation Are here.\nGo through them 🤗", reply_markup=buttons)
 
 
 def help_btns(user):
@@ -117,7 +117,7 @@ async def stats_(client: Client, message: Message):
     nosauus = await AUTH_USERS.estimated_document_count()
     nosgrps = await GROUPS.estimated_document_count()
     nossgrps = await SFW_GROUPS.estimated_document_count()
-    kk = requests.get("https://api.github.com/repos/noobsohail/Rikka").json()
+    kk = requests.get("https://github.com").json()
     await x.edit_text(f"""
 📜 Stats:-
 
