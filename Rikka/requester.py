@@ -7,9 +7,9 @@ import logging
 logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
                     level=logging.WARNING)
 
-IN_GRP = -1001415010098
+IN_GRP = -1001657611433
 bot = asst = tbot
-REQ_GO =  -1001509437008
+REQ_GO =  -1001694591350
 on = tbot.on
 auth = OWNER
 
@@ -83,7 +83,7 @@ async def delete_message(event):
             [Button.url("Ongoing Anime", url="https://t.me/Ongoing_Anime1")]]
        
         await event.edit(f"**REJECTED**\n\n~~{xx}~~", buttons=[Button.inline("Request Rejected 🚫", data="ndone")])
-        await tbot.send_message(-1001415010098, f"**⚠️ Request Rejected By Admin !!**\n\n~~{xx}~~", buttons=btns)
+        await tbot.send_message(-1001657611433, f"**⚠️ Request Rejected By Admin !!**\n\n~~{xx}~~", buttons=btns)
     else:
         await event.answer("Who TF are you? This is for admins only..", alert=True, cache_time=0)
         
@@ -103,7 +103,7 @@ async def delete_message(event):
             [Button.url("Ongoing Anime", url="https://t.me/Ongoing_Anime1")]]
        
         await event.edit(f"**UNAVAILABLE**\n\n~~{xx}~~", buttons=[Button.inline("❗ Unavailable ❗", data="navl")])
-        await tbot.send_message(-1001415010098, f"**⚠️ Request Unavailable ⚠️**\n\n~~{xx}~~", buttons=btns)
+        await tbot.send_message(-1001657611433, f"**⚠️ Request Unavailable ⚠️**\n\n~~{xx}~~", buttons=btns)
     else:
         await event.answer("Who TF are you? This is for admins only..", alert=True, cache_time=0)
         
@@ -124,7 +124,7 @@ async def isdone(e):
             [Button.url("Ongoing Anime", url="https://t.me/Ongoing_Anime1")]]
        
         await e.edit(f"**COMPLETED**\n\n~~{xx}~~", buttons=[Button.inline("Request Completed ✅", data="donne")])
-        await tbot.send_message(-1001415010098, f"**Request Completed**\n\n~~{xx}~~", buttons=btns)
+        await tbot.send_message(-1001657611433, f"**Request Completed**\n\n~~{xx}~~", buttons=btns)
     else:
         await e.answer("Who TF are you? This is for admins only..", alert=True, cache_time=0)
         
