@@ -86,9 +86,9 @@ async def site_search(client: Client, message: Message, site: str):
 async def kaizoku(c: Client, update: Update):
     await site_search(c, update, "kaizoku")
 
-@Client.on_message(filters.command(["indi", f"indi{BOT_NAME}"], prefixes=trg))
+@Client.on_message(filters.command(["india", f"indi{BOT_NAME}"], prefixes=trg))
 async def kyo(c: Client, update: Update):
-    await site_search(c, update, "indi")
+    await site_search(c, update, "india")
 
 @Client.on_message(filters.command(["gogo", f"gogo{BOT_NAME}"], prefixes=trg))
 async def gogo(c: Client, update: Update):
